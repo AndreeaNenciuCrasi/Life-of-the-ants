@@ -1,28 +1,28 @@
 package com.company;
 
-public class Drones extends Ant implements Motion {
+public class Drones extends Ant implements CalculateDistance {
 
     public Drones(String name, int positionX, int positionY) {
         super(name, positionX, positionY);
     }
 
-    @Override
-    public int distanceToQueen() {
-        return getPositionX() - 1 + getPositionY() - 1;
-    }
 
-    public void move(boolean mood) {
-        int stepsToQueen = distanceToQueen();
+    @Override
+    void move() {
         if (getPositionX() > 0) {
             setPositionX(getPositionX() - 1);
         } else if (getPositionX() == 0 && getPositionY() > 3) {
             setPositionY(getPositionY() - 1);
-        } else {
+        }
+    }
+
+        public void mating ( boolean mood){
+            int stepsToQueen = distanceToQueen(this);
             if (mood && stepsToQueen == 3) {
                 System.out.println("HALLELUJAH");
             } else if (!mood && stepsToQueen == 3) {
                 System.out.println("D’OH");
             }
         }
-    }
+
 }

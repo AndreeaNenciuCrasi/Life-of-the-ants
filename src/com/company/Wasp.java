@@ -1,13 +1,24 @@
 package com.company;
 
-public class Wasp extends Ant implements Motion{
+public class Wasp {
+    private String name = "&";
+    private int positionX;
+    private int positionY;
 
     public Wasp(int positionX, int positionY) {
-        super("&", positionX, positionY);
+        this.positionX = positionX;
+        this.positionY = positionY;
     }
 
-    @Override
-    public int distanceToQueen() {
-        return getPositionX()-1 + getPositionY()-1;
+    public int getPositionX() {
+        return positionX;
+    }
+
+    public int getPositionY() {
+        return positionY;
+    }
+
+    public String getName() {
+        return name;
     }
 }

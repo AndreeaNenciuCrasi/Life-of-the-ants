@@ -4,18 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Worker extends Ant implements Motion{
+public class Worker extends Ant implements CalculateDistance {
 
     public Worker(String name, int positionX, int positionY) {
         super(name, positionX, positionY);
     }
 
-    @Override
-    public int distanceToQueen() {
-        return getPositionX()-1 + getPositionY()-1;
-    }
 
-    public void randomMove(){
+    @Override
+    void move() {
         List<String> randomStep = new ArrayList<String>();
         randomStep.add("north");
         randomStep.add("south");

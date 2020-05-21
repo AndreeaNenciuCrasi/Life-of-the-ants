@@ -1,15 +1,43 @@
 package com.company;
 
-public class Soldier extends Ant implements Motion{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Soldier extends Ant implements CalculateDistance {
+    private String direction = "north";
+    private List<String> directionList;
 
     public Soldier(String name, int positionX, int positionY) {
+
         super(name, positionX, positionY);
+        directionList.add("north");
+        directionList.add("east");
+        directionList.add("south");
+        directionList.add("west");
     }
 
     @Override
-    public int distanceToQueen() {
-        return getPositionX()-1 + getPositionY()-1;
+    void move() {
+        switch(direction){
+            case ("north"):
+                stepTowardsNorth();
+                direction = "east";
+                break;
+            case ("east"):
+                stepTowardsEast();
+                direction = "south";
+                break;
+            case ("south"):
+                stepTowardsSouth();
+                direction = "west";
+                break;
+            case ("west"):
+                stepTowardsWest();
+                direction = "north";
+                break;
+        }
     }
+
 
     public void stepTowardsNorth(){
         setPositionY(getPositionY()-1);

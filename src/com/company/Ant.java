@@ -34,4 +34,6 @@ public abstract class Ant {
         this.positionX = positionX;
         this.positionY = positionY;
     }
+
+    abstract void move();
 }
