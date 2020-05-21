@@ -6,15 +6,35 @@ import java.util.Queue;
 public class Main {
 
     public static void main(String[] args) {
-
         Queen queen = new Queen();
         Worker worker = new Worker("W", 20,20);
-        Soldier soldier = new Soldier("S", 27, 30);
-        Drones drones = new Drones("D", 10, 40);
-        Wasp wasp = new Wasp(5,45);
+        Soldier soldier = new Soldier("S", 10, 30);
+        Drones drones = new Drones("D", 10, 25);
+        Wasp wasp = new Wasp(5,15);
 
+        int k = 0;
+        while(k < 20){
+            worker.move();
+            drones.move();
 
-        String[][] map = new String[50][50];
+            if(wasp.appearOnMap()){
+                soldier.moveTowardsWasp(wasp);
+            }else{
+                soldier.move();
+            }
+
+            if (drones.getDistanceToQueen() == 3 && queen.matingMood()){
+                System.out.println("Drone says HALLELUJAH");
+                drones.setRandomPosition();
+            }else if(drones.getDistanceToQueen() == 3 && !queen.matingMood()){
+                System.out.println("Drone says D’OH");
+                drones.setRandomPosition();
+            }
+
+            k++;
+        }
+
+        String[][] map = new String[30][30];
         for(String[] r : map)
             Arrays.fill(r, "_");
 

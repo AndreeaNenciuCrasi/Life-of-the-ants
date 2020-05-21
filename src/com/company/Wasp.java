@@ -21,4 +21,8 @@ public class Wasp {
     public String getName() {
         return name;
     }
+
+    public boolean appearOnMap(){
+        return Math.random() < 0.5;
+    }
 }

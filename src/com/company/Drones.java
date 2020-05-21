@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Random;
+
 public class Drones extends Ant implements CalculateDistance {
 
     public Drones(String name, int positionX, int positionY) {
@@ -11,18 +13,22 @@ public class Drones extends Ant implements CalculateDistance {
     void move() {
         if (getPositionX() > 0) {
             setPositionX(getPositionX() - 1);
+            System.out.println(this.getName() + " moving west towards the queen");
         } else if (getPositionX() == 0 && getPositionY() > 3) {
             setPositionY(getPositionY() - 1);
+            System.out.println(this.getName() + " moving north towards the queen");
         }
     }
 
-        public void mating ( boolean mood){
-            int stepsToQueen = distanceToQueen(this);
-            if (mood && stepsToQueen == 3) {
-                System.out.println("HALLELUJAH");
-            } else if (!mood && stepsToQueen == 3) {
-                System.out.println("D’OH");
-            }
-        }
+    public int getDistanceToQueen() {
+        return distanceToQueen(this);
+    }
+
+    public void setRandomPosition(){
+        int randomX = (int)(Math.random() * 30 + 1);
+        int randomY = (int)(Math.random() * 30 + 1);
+        setPositionY(randomY);
+        setPositionX(randomX);
+    }
 
 }

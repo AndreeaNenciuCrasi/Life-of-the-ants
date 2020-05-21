@@ -5,15 +5,9 @@ import java.util.List;
 
 public class Soldier extends Ant implements CalculateDistance {
     private String direction = "north";
-    private List<String> directionList;
 
     public Soldier(String name, int positionX, int positionY) {
-
         super(name, positionX, positionY);
-        directionList.add("north");
-        directionList.add("east");
-        directionList.add("south");
-        directionList.add("west");
     }
 
     @Override
@@ -41,30 +35,38 @@ public class Soldier extends Ant implements CalculateDistance {
 
     public void stepTowardsNorth(){
         setPositionY(getPositionY()-1);
+        System.out.println(this.getName() + " moves north");
     }
 
     public void stepTowardsSouth(){
         setPositionY(getPositionY() + 1);
+        System.out.println(this.getName() + " moves south");
     }
 
     public void stepTowardsWest(){
         setPositionX(getPositionX() -1);
+        System.out.println(this.getName() +" moves west");
     }
 
     public void stepTowardsEast(){
         setPositionX(getPositionX() + 1);
+        System.out.println(this.getName() +" moves east");
     }
 
     public void moveTowardsWasp(Wasp wasp){
         if(wasp.getPositionX() < getPositionX()) {
             setPositionX(getPositionX() - 1);
+            System.out.println(this.getName() + " moving west towards the Wasp");
         }else if(wasp.getPositionX() > getPositionX()){
             setPositionX(getPositionX() + 1);
+            System.out.println(this.getName() + " moving east towards the Wasp");
         }else if (wasp.getPositionX() == getPositionX()){
             if(wasp.getPositionY() < getPositionY()){
                 setPositionY(getPositionY()-1);
+                System.out.println(this.getName() + " moving north towards the Wasp");
             }else if (wasp.getPositionY() > getPositionY()){
                 setPositionY(getPositionY()+1);
+                System.out.println(this.getName() + " moving south towards the Wasp");
             }else if (wasp.getPositionY() == getPositionY()) {
                 System.out.println("HAJIME");
                 wasp = null;

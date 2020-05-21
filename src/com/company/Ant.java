@@ -18,13 +18,13 @@ public abstract class Ant {
     }
 
     public void setPositionX(int positionX) {
-        if (positionX >= 0 && positionX <= 49) {
+        if (positionX >= 0 && positionX <= 29) {
             this.positionX = positionX;
         }
     }
 
     public void setPositionY(int positionY) {
-        if (positionY >= 0 && positionY <= 49) {
+        if (positionY >= 0 && positionY <= 29) {
             this.positionY = positionY;
         }
     }

@@ -23,19 +23,23 @@ public class Worker extends Ant implements CalculateDistance {
         switch (random) {
             case "north":
                 if (getPositionY() - 1 >=0){
-                setPositionY(getPositionY() - 1);}
+                setPositionY(getPositionY() - 1);
+                    System.out.println(this.getName() + " moves north");}
                 break;
             case "south":
-                if(getPositionY() +1 <= 49){
-                setPositionY(getPositionY() + 1);}
+                if(getPositionY() +1 <= 29){
+                setPositionY(getPositionY() + 1);
+                    System.out.println(this.getName() + " moves south");}
                 break;
             case "west":
                 if (getPositionX() - 1 >=0){
-                setPositionX(getPositionX() - 1);}
+                setPositionX(getPositionX() - 1);
+                    System.out.println(this.getName() + " moves west");}
                 break;
             case "east":
-                if (getPositionX() + 1 <= 49){
-                setPositionX(getPositionX() + 1);}
+                if (getPositionX() + 1 <= 29){
+                setPositionX(getPositionX() + 1);
+                    System.out.println(this.getName() + " moves east");}
                 break;
             default:
                 System.out.println("Can't move");
