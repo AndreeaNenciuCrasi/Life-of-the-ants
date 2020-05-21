@@ -13,7 +13,7 @@ public class Main {
         Wasp wasp = new Wasp(5,15);
 
         int k = 0;
-        while(k < 20){
+        while(k < 40){
             worker.move();
             drones.move();
 
@@ -33,6 +33,9 @@ public class Main {
 
             k++;
         }
+
+        System.out.println();
+        System.out.println();
 
         String[][] map = new String[30][30];
         for(String[] r : map)
